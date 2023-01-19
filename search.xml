@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>STL 内置常用算法</title>
+      <link href="/STL/10algorithm/"/>
+      <url>/STL/10algorithm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="STL常用算法"><a href="#STL常用算法" class="headerlink" title="STL常用算法"></a>STL常用算法</h1><p> 头文件</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;algorithm&gt;最大，涉及比较、交换、查找、遍历操作、复制、修改等</span></span><br><span class="line"><span class="comment">//&lt;numeric&gt;很小，只包括几个在序列上面进行简单数学运算的模板函数</span></span><br><span class="line"><span class="comment">//&lt;functional&gt;定义了一些模板类，用以声明函数对象</span></span><br></pre></td></tr></table></figure><h2 id="遍历算法"><a href="#遍历算法" class="headerlink" title="遍历算法"></a>遍历算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历容器</span></span><br><span class="line">for_each(iterator begin,iterator end,_func);<span class="comment">//普通函数func,仿函数func();</span></span><br><span class="line"><span class="comment">//搬运容器到另一个容器中</span></span><br><span class="line"><span class="built_in">transform</span>(iterator begin1,iterator end1,iterator begin2,_func);<span class="comment">//目标容器需要提前开辟空间</span></span><br></pre></td></tr></table></figure><h2 id="查找算法"><a href="#查找算法" class="headerlink" title="查找算法"></a>查找算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置</span></span><br><span class="line"><span class="built_in">find</span>(iterator begin,iterator end,value);<span class="comment">//自定义数据需重载==</span></span><br><span class="line"><span class="comment">//按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置</span></span><br><span class="line"><span class="built_in">find_if</span>(iterator begin,iterator end,Pred);<span class="comment">//_Pred函数或者谓词（返回bool类型的仿函数）</span></span><br><span class="line"><span class="comment">//查找相邻重复元素，返回相邻元素的第一个位置的迭代器</span></span><br><span class="line"><span class="function">adjacent <span class="title">find</span><span class="params">(iterator begin,iterator end)</span></span>;</span><br><span class="line"><span class="comment">//查找指定的元素，查到返回true否则false</span></span><br><span class="line"><span class="function"><span class="type">bool</span> binary <span class="title">search</span><span class="params">(iterator begin,iterator end,value)</span></span>;<span class="comment">//注意：在无序序列中不可用</span></span><br><span class="line"><span class="comment">//统计元素出现次数</span></span><br><span class="line"><span class="built_in">count</span>(iterator begin,iterator end,value);</span><br><span class="line"><span class="comment">//按条件统计元素出现次数</span></span><br><span class="line"><span class="built_in">count_if</span>(iterator begin,iterator end,_Pred);</span><br></pre></td></tr></table></figure><h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对容器内元素进行排序</span></span><br><span class="line"><span class="built_in">sort</span>(iterator begin,iterator end,_Pred);</span><br><span class="line"><span class="comment">//洗牌，指定范围内的元素随机调整次序</span></span><br><span class="line"><span class="built_in">random_shuffle</span>(iterator begin,iterator end);</span><br><span class="line"><span class="comment">//容器元素合并，并存储到另一容器中</span></span><br><span class="line"><span class="built_in">merge</span>(iterator begin1,iterator end1,iterator begin2,iterator end2,iterator dest);<span class="comment">//注意：两个容器必须是有序的</span></span><br><span class="line"><span class="comment">//反转指定范围[begin,end)的元素</span></span><br><span class="line"><span class="built_in">reverse</span>(iterator begin,iterator end);</span><br></pre></td></tr></table></figure><h2 id="拷贝替换算法"><a href="#拷贝替换算法" class="headerlink" title="拷贝替换算法"></a>拷贝替换算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//容器内指定范围的元素拷贝到另一容器中</span></span><br><span class="line"><span class="built_in">copy</span>(iterator begin,iterator end,iterator dest);</span><br><span class="line"><span class="comment">//将区间内旧元素替换成新元素</span></span><br><span class="line"><span class="built_in">replace</span>(iterator begin,iterator end,oldvalue,newvalue);</span><br><span class="line"><span class="comment">//按条件替换元素，满足条件的替换成指定元素</span></span><br><span class="line"><span class="built_in">replace_if</span>(iterator begin,iterator end,_pred,newvalue);</span><br><span class="line"><span class="comment">//互换两个同种类型的容器的元素</span></span><br><span class="line"><span class="built_in">swap</span>(container c1,container c2);</span><br></pre></td></tr></table></figure><h2 id="算数生成算法"><a href="#算数生成算法" class="headerlink" title="算数生成算法"></a>算数生成算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="comment">//计算容器元素累计总和</span></span><br><span class="line"><span class="built_in">accumulate</span>(iterator begin,iterator end,value);<span class="comment">//value起始累加值</span></span><br><span class="line"><span class="comment">//向容器中填充元素</span></span><br><span class="line"><span class="built_in">fill</span>(iterator begin,iterator end,value);<span class="comment">//value填充的值</span></span><br></pre></td></tr></table></figure><h2 id="集合算法"><a href="#集合算法" class="headerlink" title="集合算法"></a>集合算法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求两个集合的交集，返回值是交集中最后一个元素位置</span></span><br><span class="line"><span class="built_in">set_intersection</span>(iterator begin1,iterator end1,iterator begin2,iterator end2,iterator dest);<span class="comment">//注意：两个集合必须是有序序列，目标容器开辟空间需要从两个容器取较小值</span></span><br><span class="line"><span class="comment">//求两个集合的并集，返回值是并集中最后一个元素位置</span></span><br><span class="line"><span class="built_in">set_union</span>(iterator begin1,iterator end1,iterator begin2,iterator end2,iterator dest);<span class="comment">//注意：两个集合必须是有序序列，目标容器开辟空间需要两个容器相加</span></span><br><span class="line"><span class="comment">//求两个集合1与2的差集，返回值是差集中最后一个元素位置</span></span><br><span class="line"><span class="built_in">set_difference</span>(iterator begin1,iterator end1,iterator begin2,iterator end2,iterator dest);<span class="comment">//注意：两个集合必须是有序序列，目标容器开辟空间需要从两个容器取较大值</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL 函数对象</title>
+      <link href="/STL/9FunctionObject/"/>
+      <url>/STL/9FunctionObject/</url>
+      
+        <content type="html"><![CDATA[<h1 id="函数对象"><a href="#函数对象" class="headerlink" title="函数对象"></a>函数对象</h1><p> 重载函数调用操作符的类，其对象称为函数对象</p><p> 函数对象使用重载的（）时，行为类似函数调用，也叫仿函数</p><p> 本质是一个类</p><h2 id="谓词"><a href="#谓词" class="headerlink" title="谓词"></a>谓词</h2><p> 返回bool类型的仿函数称为谓词</p><p> 如果operator()接受一个参数，那么叫做一元谓词</p><p> 如果operator()接受两个参数，那么叫做二元谓词</p><h2 id="内建函数对象"><a href="#内建函数对象" class="headerlink" title="内建函数对象"></a>内建函数对象</h2><p> 引入头文件</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;functional&gt;</span></span></span><br></pre></td></tr></table></figure><p> 算数仿函数&#x2F;关系仿函数&#x2F;逻辑仿函数</p><h2 id="算数仿函数"><a href="#算数仿函数" class="headerlink" title="算数仿函数"></a>算数仿函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加法仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T plus&lt;T&gt;</span><br><span class="line"><span class="comment">//减法仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T minus&lt;T&gt;</span><br><span class="line"><span class="comment">//乘法仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T multiplies&lt;T&gt;</span><br><span class="line"><span class="comment">//除法仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T divides&lt;T&gt;</span><br><span class="line"><span class="comment">//取模仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T modulus&lt;T&gt;</span><br><span class="line"><span class="comment">//取反仿函数</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;T negate&lt;T&gt;</span><br></pre></td></tr></table></figure><h2 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">negate&lt;<span class="type">int</span>&gt; n;</span><br><span class="line"><span class="built_in">n</span>(<span class="number">1</span>);</span><br><span class="line">plus&lt;<span class="type">int</span>&gt; p;</span><br><span class="line"><span class="built_in">p</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure><h2 id="关系仿函数"><a href="#关系仿函数" class="headerlink" title="关系仿函数"></a>关系仿函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> equal_to&lt;T&gt;</span><br><span class="line"><span class="comment">//不等于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> <span class="keyword">not</span> equal to&lt;T&gt;</span><br><span class="line"><span class="comment">//大于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> greater&lt;T&gt;</span><br><span class="line"><span class="comment">//大于等于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> greater_equal&lt;T&gt;</span><br><span class="line"><span class="comment">//小于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> less&lt;T&gt;</span><br><span class="line"><span class="comment">//小于等于</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> less_equal&lt;T&gt;</span><br></pre></td></tr></table></figure><h2 id="逻辑仿函数"><a href="#逻辑仿函数" class="headerlink" title="逻辑仿函数"></a>逻辑仿函数</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//逻辑与</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> logical_and&lt;T&gt;</span><br><span class="line"><span class="comment">//逻辑或</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> logical_or&lt;T&gt;</span><br><span class="line"><span class="comment">//逻辑非</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;<span class="type">bool</span> logical_not&lt;T&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> 函数对象 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL map容器</title>
+      <link href="/STL/8map/"/>
+      <url>/STL/8map/</url>
+      
+        <content type="html"><![CDATA[<h1 id="map-x2F-multimap容器"><a href="#map-x2F-multimap容器" class="headerlink" title="map&#x2F;multimap容器"></a>map&#x2F;multimap容器</h1><p> 所有的元素都是pair</p><p> pair中第一个元素为key（键值），起到索引作用，第二个元素为value(实值)</p><p> 所有元素根据键值自动排序</p><p> 关联式容器&#x2F;底层为二叉树</p><table><thead><tr><th align="center">map</th><th align="center">multimap</th></tr></thead><tbody><tr><td align="center">不允许有重复的key值元素</td><td align="center">允许有重复的key值元素</td></tr></tbody></table><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map&lt;T1,T2&gt; m;</span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载 = 操作符</span></span><br></pre></td></tr></table></figure><h2 id="大小和交换"><a href="#大小和交换" class="headerlink" title="大小和交换"></a>大小和交换</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回容器中元素的数目</span></span><br><span class="line">m.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//判断容器是否为空</span></span><br><span class="line">m.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//交换两个集合容器</span></span><br><span class="line">m.<span class="built_in">swap</span>(mp);</span><br></pre></td></tr></table></figure><h2 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在容器中插入元素</span></span><br><span class="line">m.<span class="built_in">insert</span>(elem);</span><br><span class="line"><span class="comment">//清除所有元素</span></span><br><span class="line">m.<span class="built_in">clear</span>();</span><br><span class="line"><span class="comment">//删除pos迭代器所指向的元素，返回下一个元素的迭代器</span></span><br><span class="line">m.<span class="built_in">erase</span>(pos);</span><br><span class="line"><span class="comment">//删除区间[begin,end)的所有元素，返回下一个元素的迭代器</span></span><br><span class="line">m.<span class="built_in">erase</span>(begin,end);</span><br><span class="line"><span class="comment">//删除容器中键值为key的元素</span></span><br><span class="line">m.<span class="built_in">erase</span>(key);</span><br></pre></td></tr></table></figure><h2 id="插入的几种写法"><a href="#插入的几种写法" class="headerlink" title="插入的几种写法"></a>插入的几种写法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt;(key,value));</span><br><span class="line">m.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(key,value));</span><br><span class="line">m.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>,<span class="type">int</span>&gt;::<span class="built_in">value_type</span>(key,value));</span><br><span class="line"><span class="comment">//不推荐</span></span><br><span class="line">m[key] = value;</span><br></pre></td></tr></table></figure><h2 id="查找和统计"><a href="#查找和统计" class="headerlink" title="查找和统计"></a>查找和统计</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找key是否存在，返回该键的元素的迭代器；若不存在，返回set.end();</span></span><br><span class="line">m.<span class="built_in">find</span>(key);</span><br><span class="line"><span class="comment">//统计key的元素个数</span></span><br><span class="line">m.<span class="built_in">count</span>(key);</span><br></pre></td></tr></table></figure><h2 id="修改排序规则"><a href="#修改排序规则" class="headerlink" title="修改排序规则"></a>修改排序规则</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//仿函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCompare</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">        <span class="comment">//降序</span></span><br><span class="line">        <span class="keyword">return</span> v1 &gt; v2;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//map按照仿函数定义的规则排序</span></span><br><span class="line"><span class="comment">//自定义数据类型必须指定排序规则</span></span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>,MyCompare&gt; m;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> map </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL pair容器</title>
+      <link href="/STL/7pair/"/>
+      <url>/STL/7pair/</url>
+      
+        <content type="html"><![CDATA[<h1 id="pair对组"><a href="#pair对组" class="headerlink" title="pair对组"></a>pair对组</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pair&lt;type,type&gt; <span class="title">p</span> <span class="params">(value1,value2)</span></span>;</span><br><span class="line">pair&lt;type,type&gt; p = <span class="built_in">make_pair</span>(value1,value2);</span><br></pre></td></tr></table></figure><h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p.first</span><br><span class="line">p.second </span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> pair </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL set容器</title>
+      <link href="/STL/6set/"/>
+      <url>/STL/6set/</url>
+      
+        <content type="html"><![CDATA[<h1 id="set-x2F-multiset容器"><a href="#set-x2F-multiset容器" class="headerlink" title="set&#x2F;multiset容器"></a>set&#x2F;multiset容器</h1><p>所有元素都会在插入时自动被排序</p><p>关联式容器&#x2F;底层为二叉树</p><table><thead><tr><th align="center">set</th><th align="center">multiset</th></tr></thead><tbody><tr><td align="center">不允许容器中有重复的元素</td><td align="center">允许容器中有重复的元素</td></tr></tbody></table><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set&lt;T&gt; s</span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载 = 操作符</span></span><br></pre></td></tr></table></figure><h2 id="大小和交换"><a href="#大小和交换" class="headerlink" title="大小和交换"></a>大小和交换</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回容器中元素的数目</span></span><br><span class="line">s.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//判断容器是否为空</span></span><br><span class="line">s.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//交换两个集合容器</span></span><br><span class="line">s.<span class="built_in">swap</span>(st); </span><br></pre></td></tr></table></figure><h2 id="插入和删除"><a href="#插入和删除" class="headerlink" title="插入和删除"></a>插入和删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在容器中插入元素</span></span><br><span class="line">s.<span class="built_in">insert</span>(elem);</span><br><span class="line"><span class="comment">//清除所有元素</span></span><br><span class="line">s.<span class="built_in">clear</span>();</span><br><span class="line"><span class="comment">//删除pos迭代器所指向的元素，返回下一个元素的迭代器</span></span><br><span class="line">s.<span class="built_in">erase</span>(pos);</span><br><span class="line"><span class="comment">//删除区间[begin,end)的所有元素，返回下一个元素的迭代器</span></span><br><span class="line">s.<span class="built_in">erase</span>(begin,end);</span><br><span class="line"><span class="comment">//删除容器中值为elem的元素</span></span><br><span class="line">s.<span class="built_in">erase</span>(elem);</span><br></pre></td></tr></table></figure><h2 id="查找和统计"><a href="#查找和统计" class="headerlink" title="查找和统计"></a>查找和统计</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找key是否存在，若存在，返回该键的元素的迭代器；若不存在，返回set.end();</span></span><br><span class="line">s.<span class="built_in">find</span>(key);</span><br><span class="line"><span class="comment">//统计key的元素个数</span></span><br><span class="line">s.<span class="built_in">count</span>(key);</span><br></pre></td></tr></table></figure><h2 id="修改排序规则"><a href="#修改排序规则" class="headerlink" title="修改排序规则"></a>修改排序规则</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//仿函数</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCompare</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> v1,<span class="type">int</span> v2)</span></span>&#123;</span><br><span class="line">        <span class="comment">//降序</span></span><br><span class="line">        <span class="keyword">return</span> v1 &gt; v2;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//set按照仿函数定义的规则排序</span></span><br><span class="line"><span class="comment">//自定义数据类型必须指定排序规则</span></span><br><span class="line">set&lt;<span class="type">int</span>,MyCompare&gt; s;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> set </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL list容器</title>
+      <link href="/STL/5list/"/>
+      <url>/STL/5list/</url>
+      
+        <content type="html"><![CDATA[<h1 id="list容器"><a href="#list容器" class="headerlink" title="list容器"></a>list容器</h1><p> 双向链表</p><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list&lt;T&gt; l;</span><br><span class="line"><span class="comment">//将l[begin(),end())区间的元素拷贝给本身</span></span><br><span class="line"><span class="built_in">list</span>(l.<span class="built_in">begin</span>(),l.<span class="built_in">end</span>());</span><br><span class="line"><span class="comment">//构造函数将n个elem拷贝给本身</span></span><br><span class="line"><span class="built_in">list</span>(n,elem);</span><br></pre></td></tr></table></figure><h2 id="数据元素插入和删除操作"><a href="#数据元素插入和删除操作" class="headerlink" title="数据元素插入和删除操作"></a>数据元素插入和删除操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在容器尾部加入一个元素</span></span><br><span class="line">l.<span class="built_in">push_back</span>(elem);</span><br><span class="line"><span class="comment">//删除容器中最后一个元素</span></span><br><span class="line">l.<span class="built_in">pop_back</span>();</span><br><span class="line"><span class="comment">//在容器开头插入一个元素</span></span><br><span class="line">l.<span class="built_in">push_front</span>(elem);</span><br><span class="line"><span class="comment">//从容器开头移除第一个元素</span></span><br><span class="line">l.<span class="built_in">pop_front</span>();</span><br><span class="line"><span class="comment">//在pos位置插入elem元素的拷贝，返回数据的位置</span></span><br><span class="line">l.<span class="built_in">insert</span>(pos,elem);</span><br><span class="line"><span class="comment">//在pos位置插入n个elem数据数据,无返回值</span></span><br><span class="line">l.<span class="built_in">insert</span>(pos,n,elem);</span><br><span class="line"><span class="comment">//在pos 位置插入[begin,end)区间的数据，无返回值</span></span><br><span class="line">l.<span class="built_in">insert</span>(pos,begin,end);</span><br><span class="line"><span class="comment">//移除容器中的所有数据</span></span><br><span class="line">l.<span class="built_in">clear</span>();</span><br><span class="line"><span class="comment">//删除[begin,end)区间的数据，返回下一个数据的位置</span></span><br><span class="line">l.<span class="built_in">erase</span>(begin,end);</span><br><span class="line"><span class="comment">//删除pos位置的数据，返回下一个数据的位置</span></span><br><span class="line">l.<span class="built_in">erase</span>(pos);</span><br><span class="line"><span class="comment">//删除容器中所有与elem值匹配的元素</span></span><br><span class="line">l.<span class="built_in">remove</span>(elem);</span><br></pre></td></tr></table></figure><h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回容器中元素的个数</span></span><br><span class="line">l.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//判断容器是否为空</span></span><br><span class="line">l.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//重新指定容器的长度为num，若容器变长，则以默认值填充新位置，如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">l.<span class="built_in">resize</span>(num);</span><br><span class="line"><span class="comment">//重新指定容器长度为num，若容器变长，则以elem值填充新位置，如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">l.<span class="built_in">resize</span>(num,elem);  </span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将[begin,end)区间中的数据拷贝赋值给本身</span></span><br><span class="line">l.<span class="built_in">assign</span>(begin,end);</span><br><span class="line"><span class="comment">//将n个elem拷贝赋值给本身</span></span><br><span class="line">l.<span class="built_in">assign</span>(n,elem);</span><br><span class="line"><span class="comment">//重载=操作符</span></span><br><span class="line"><span class="comment">//将list与本身元素互换</span></span><br><span class="line">l.<span class="built_in">swap</span>(lst);</span><br></pre></td></tr></table></figure><h2 id="存取"><a href="#存取" class="headerlink" title="存取"></a>存取</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回第一个元素</span></span><br><span class="line">l.<span class="built_in">front</span>();</span><br><span class="line"><span class="comment">//返回最后一个元素</span></span><br><span class="line">l.<span class="built_in">back</span>();</span><br></pre></td></tr></table></figure><h2 id="反转与排序"><a href="#反转与排序" class="headerlink" title="反转与排序"></a>反转与排序</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//反转链表</span></span><br><span class="line">l.<span class="built_in">reverse</span>();</span><br><span class="line"><span class="comment">//排序</span></span><br><span class="line">l.<span class="built_in">sort</span>();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> list </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL queue容器</title>
+      <link href="/STL/4queue/"/>
+      <url>/STL/4queue/</url>
+      
+        <content type="html"><![CDATA[<h1 id="queue容器"><a href="#queue容器" class="headerlink" title="queue容器"></a>queue容器</h1><p> 队列容器&#x2F;先进先出</p><p> 不提供迭代器&#x2F;不能遍历&#x2F;不支持随机访问</p><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;T&gt; q;</span><br></pre></td></tr></table></figure><h2 id="存取、插入和删除"><a href="#存取、插入和删除" class="headerlink" title="存取、插入和删除"></a>存取、插入和删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//往队尾添加元素</span></span><br><span class="line">q.<span class="built_in">push</span>(elem);</span><br><span class="line"><span class="comment">//从队头移除第一个元素</span></span><br><span class="line">q.<span class="built_in">pop</span>();</span><br><span class="line"><span class="comment">//返回最后一个元素</span></span><br><span class="line">q.<span class="built_in">back</span>();</span><br><span class="line"><span class="comment">//返回第一个元素</span></span><br><span class="line">q.<span class="built_in">front</span>();</span><br></pre></td></tr></table></figure><h2 id="赋值操作"><a href="#赋值操作" class="headerlink" title="赋值操作"></a>赋值操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载=操作符</span></span><br></pre></td></tr></table></figure><h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断队列是否为空</span></span><br><span class="line">q.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//返回队列大小</span></span><br><span class="line">q.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> queue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL Stack容器</title>
+      <link href="/STL/3Stack/"/>
+      <url>/STL/3Stack/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Stack容器"><a href="#Stack容器" class="headerlink" title="Stack容器"></a>Stack容器</h1><p> 先进后出</p><p> 不能遍历，不支持随机存取，只能通过top从栈顶获取和删除元素</p><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;T&gt; s;</span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载等号操作符</span></span><br></pre></td></tr></table></figure><h2 id="数据存取"><a href="#数据存取" class="headerlink" title="数据存取"></a>数据存取</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向栈顶添加元素</span></span><br><span class="line"><span class="built_in">push</span>(elem);</span><br><span class="line"><span class="comment">//从栈顶移除第一个元素</span></span><br><span class="line"><span class="built_in">pop</span>();</span><br><span class="line"><span class="comment">//返回栈顶元素</span></span><br><span class="line"><span class="built_in">top</span>();</span><br></pre></td></tr></table></figure><h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断栈是否为空</span></span><br><span class="line">s.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//返回堆栈的大小</span></span><br><span class="line">s.<span class="built_in">size</span>();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> Stack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL deque容器</title>
+      <link href="/STL/2deque/"/>
+      <url>/STL/2deque/</url>
+      
+        <content type="html"><![CDATA[<h1 id="deque容器"><a href="#deque容器" class="headerlink" title="deque容器"></a>deque容器</h1><p> 双口（端）数组</p><p> 自行内存回收</p><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deque&lt;T&gt; d</span><br><span class="line"><span class="comment">//将d[begin(),end())区间的元素拷贝给本身</span></span><br><span class="line"><span class="built_in">deque</span>(d.<span class="built_in">begin</span>(),d.<span class="built_in">end</span>());</span><br><span class="line"><span class="comment">//构造函数将n个elem拷贝给本身</span></span><br><span class="line"><span class="built_in">deque</span>(n,elem);</span><br></pre></td></tr></table></figure><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deque&lt;<span class="type">int</span>&gt;::iterator it = d.<span class="built_in">begin</span>(); </span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将[begin,end)区间的数据拷贝赋值给本身</span></span><br><span class="line">d.<span class="built_in">assign</span>(begin,end);</span><br><span class="line"><span class="comment">//将n个elem拷贝赋值给本身</span></span><br><span class="line">d.<span class="built_in">assign</span>(n,elem);</span><br><span class="line"><span class="comment">//重载=</span></span><br><span class="line"><span class="comment">//将deq与本身元素交换</span></span><br><span class="line">d.<span class="built_in">swap</span>(deq);</span><br></pre></td></tr></table></figure><h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回容器中元素的个数</span></span><br><span class="line">deque.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//判断容器是否为空</span></span><br><span class="line">deque.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//重新指定容器的长度为num，若容器变长，则以默认值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">deque.<span class="built_in">resize</span>(<span class="type">int</span> num);</span><br><span class="line"><span class="comment">//重新指定容器的长度为num，若容器变长，则以elem值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">deque.<span class="built_in">resize</span>(<span class="type">int</span> num,elem);</span><br></pre></td></tr></table></figure><h2 id="双端插入和删除"><a href="#双端插入和删除" class="headerlink" title="双端插入和删除"></a>双端插入和删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在容器尾部添加一个数据</span></span><br><span class="line"><span class="built_in">push_back</span>(elem);</span><br><span class="line"><span class="comment">//在容器头部插入一个数据</span></span><br><span class="line"><span class="built_in">push_front</span>(elem);</span><br><span class="line"><span class="comment">//删除容器最后一个数据</span></span><br><span class="line"><span class="built_in">pop_back</span>();</span><br><span class="line"><span class="comment">//删除容器第一个数据</span></span><br><span class="line"><span class="built_in">pop_front</span>();</span><br></pre></td></tr></table></figure><h2 id="数据存取"><a href="#数据存取" class="headerlink" title="数据存取"></a>数据存取</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回索引idx所指的数据，如果idx越界，抛出out_of_range异常</span></span><br><span class="line">d.<span class="built_in">at</span>(<span class="type">int</span> idx);</span><br><span class="line"><span class="comment">//返回索引idx所指的数据，越界时，运行直接报错</span></span><br><span class="line"><span class="keyword">operator</span>[] </span><br><span class="line"><span class="comment">//返回容器中第一个数据元素</span></span><br><span class="line">d.<span class="built_in">front</span>();</span><br><span class="line"><span class="comment">//返回容器中最后一个数据元素</span></span><br><span class="line">d.<span class="built_in">back</span>();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> deque </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL Vector容器</title>
+      <link href="/STL/1Vector/"/>
+      <url>/STL/1Vector/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Vector容器"><a href="#Vector容器" class="headerlink" title="Vector容器"></a>Vector容器</h1><p> 动态数组&#x2F;可变数组</p><p> 单口（端）数组</p><p> 支持随机访问</p><p> 迭代器：</p><table><thead><tr><th align="center">v.begin()</th><th align="center">v.end()</th><th align="center">v.rbegin()</th><th align="center">v.rend()</th></tr></thead><tbody><tr><td align="center">第一个元素</td><td align="center">最后一个元素+1</td><td align="center">最后一个元素</td><td align="center">第一个元素-1</td></tr></tbody></table><h2 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;T&gt; v</span><br><span class="line"><span class="comment">//将v[begin(),end())区间的元素拷贝给本身</span></span><br><span class="line"><span class="built_in">vector</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>());</span><br><span class="line"><span class="comment">//构造函数将n个elem拷贝给本身</span></span><br><span class="line"><span class="built_in">vector</span>(n,elem);</span><br></pre></td></tr></table></figure><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); </span><br></pre></td></tr></table></figure><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将[begin,end)区间的数据拷贝赋值给本身</span></span><br><span class="line">v.<span class="built_in">assign</span>(begin,end);</span><br><span class="line"><span class="comment">//将n个elem拷贝赋值给本身</span></span><br><span class="line">v.<span class="built_in">assign</span>(n,elem);</span><br><span class="line"><span class="comment">//重载=</span></span><br><span class="line"><span class="comment">//将vec与本身元素交换</span></span><br><span class="line">v.<span class="built_in">swap</span>(vec);</span><br></pre></td></tr></table></figure><h2 id="大小操作"><a href="#大小操作" class="headerlink" title="大小操作"></a>大小操作</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回容器中元素的个数</span></span><br><span class="line">v.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//判断容器是否为空</span></span><br><span class="line">v.<span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//重新指定容器的长度为num，若容器变长，则以默认值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">v.<span class="built_in">resize</span>(<span class="type">int</span> num);</span><br><span class="line"><span class="comment">//重新指定容器的长度为num，若容器变长，则以elem值填充新位置。如果容器变短，则末尾超出容器长度的元素被删除</span></span><br><span class="line">v.<span class="built_in">resize</span>(<span class="type">int</span> num,elem);</span><br><span class="line"><span class="comment">//容器的容量</span></span><br><span class="line">v.<span class="built_in">capacity</span>();</span><br><span class="line"><span class="comment">//容器预留len个元素长度，预留位置不初始化，元素不可访问</span></span><br><span class="line">v.<span class="built_in">reserve</span>(<span class="type">int</span> len);</span><br></pre></td></tr></table></figure><h2 id="数据存取"><a href="#数据存取" class="headerlink" title="数据存取"></a>数据存取</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回索引idx所指的数据，如果idx越界，抛出out_of_range异常</span></span><br><span class="line">v.<span class="built_in">at</span>(<span class="type">int</span> idx);</span><br><span class="line"><span class="comment">//返回索引idx所指的数据，越界时，运行直接报错</span></span><br><span class="line"><span class="keyword">operator</span>[] </span><br><span class="line"><span class="comment">//返回容器中第一个数据元素</span></span><br><span class="line">v.<span class="built_in">front</span>();</span><br><span class="line"><span class="comment">//返回容器中最后一个数据元素</span></span><br><span class="line">v.<span class="built_in">back</span>();</span><br></pre></td></tr></table></figure><h2 id="插入删除"><a href="#插入删除" class="headerlink" title="插入删除"></a>插入删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代器指向位置pos插入count个元素elem</span></span><br><span class="line">v.<span class="built_in">insert</span>(const_iterator pos, <span class="type">int</span> count,elem);</span><br><span class="line"><span class="comment">//尾部插入元素elem</span></span><br><span class="line">v.<span class="built_in">push_back</span>(elem);</span><br><span class="line"><span class="comment">//删除最后一个元素</span></span><br><span class="line">v.<span class="built_in">pop_back</span>();</span><br><span class="line"><span class="comment">//删除迭代器从start到end之间的元素</span></span><br><span class="line">v.<span class="built_in">erase</span>(const_iterator start,const_iterator end);</span><br><span class="line"><span class="comment">//删除迭代器指向的元素</span></span><br><span class="line">v.<span class="built_in">erase</span>(const_iterator pos);</span><br><span class="line"><span class="comment">//删除容器中所有元素</span></span><br><span class="line">v.<span class="built_in">clear</span>();</span><br></pre></td></tr></table></figure><h2 id="收缩空间技巧"><a href="#收缩空间技巧" class="headerlink" title="收缩空间技巧"></a>收缩空间技巧</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用v根据v实际大小初始化匿名对象，swap交换v和匿名对象指针，结束后匿名对象销毁</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(v).<span class="built_in">swap</span>(v);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> Vector </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>STL String容器</title>
+      <link href="/STL/0String/"/>
+      <url>/STL/0String/</url>
+      
+        <content type="html"><![CDATA[<h1 id="String容器"><a href="#String容器" class="headerlink" title="String容器"></a>String容器</h1><h2 id="查找第一次出现位置"><a href="#查找第一次出现位置" class="headerlink" title="查找第一次出现位置"></a>查找第一次出现位置</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">find</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment">//返回int</span></span><br></pre></td></tr></table></figure><h2 id="查找最后一次出现位置"><a href="#查找最后一次出现位置" class="headerlink" title="查找最后一次出现位置"></a>查找最后一次出现位置</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">rfind</span>(<span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="comment">//返回int</span></span><br></pre></td></tr></table></figure><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">replace</span>(<span class="type">int</span> pos, <span class="type">int</span> n;<span class="type">const</span> string &amp;str)</span><br><span class="line"><span class="comment">//替换从pos开始n个字符为字符串str</span></span><br></pre></td></tr></table></figure><h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">compare</span>(<span class="type">const</span> string &amp;str)</span><br><span class="line"><span class="comment">// &gt;返回1 &lt;返回-1 ==返回0</span></span><br></pre></td></tr></table></figure><h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">substr</span>(<span class="type">int</span> pos,<span class="type">int</span> n)</span><br></pre></td></tr></table></figure><p> 返回由pos开始的n个字符组成的字符串</p><h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">insert</span>(<span class="type">int</span> pos,<span class="type">const</span> string &amp;str)</span><br></pre></td></tr></table></figure><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="built_in">erase</span>(<span class="type">int</span> pos,<span class="type">int</span> n)</span><br></pre></td></tr></table></figure><p> 删除从pos开始的n个字符</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> STL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STL </tag>
+            
+            <tag> String </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git图形化操作</title>
+      <link href="/Git/2GUI/"/>
+      <url>/Git/2GUI/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TortoiseGit"><a href="#TortoiseGit" class="headerlink" title="TortoiseGit"></a>TortoiseGit</h1><p>右键使用，图形化界面使用git</p><h1 id="JB中使用Git"><a href="#JB中使用Git" class="headerlink" title="JB中使用Git"></a>JB中使用Git</h1><h2 id="创建Git仓库"><a href="#创建Git仓库" class="headerlink" title="创建Git仓库"></a>创建Git仓库</h2><p>vcs–&gt;import into Version Control–&gt;Create Git Repository</p><h2 id="推送至远程仓库"><a href="#推送至远程仓库" class="headerlink" title="推送至远程仓库"></a>推送至远程仓库</h2><p>右键–&gt;Git–&gt;Repository–&gt;Push</p><h2 id="版本对比"><a href="#版本对比" class="headerlink" title="版本对比"></a>版本对比</h2><p>右键–&gt;Git–&gt;Compare with</p><h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><p>VCS–&gt;Git–&gt;Branches–&gt;New Branches</p><h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><p>VCS–&gt;Git–&gt;Branches–&gt;选择分支–&gt;Checkout</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git命令</title>
+      <link href="/Git/1Command/"/>
+      <url>/Git/1Command/</url>
+      
+        <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name “用户名”</span><br><span class="line">git config --global user.email <span class="string">&quot;email&quot;</span></span><br></pre></td></tr></table></figure><h2 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br><span class="line">git config user.name</span><br></pre></td></tr></table></figure><h2 id="在本地初始化git仓库"><a href="#在本地初始化git仓库" class="headerlink" title="在本地初始化git仓库"></a>在本地初始化git仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure><h2 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;url&gt;</span><br></pre></td></tr></table></figure><h2 id="查看文件状态-工作区的所有文件"><a href="#查看文件状态-工作区的所有文件" class="headerlink" title="查看文件状态 (工作区的所有文件)"></a>查看文件状态 (工作区的所有文件)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git status -s  <span class="comment">#简洁输出</span></span><br></pre></td></tr></table></figure><h2 id="文件加入暂存区"><a href="#文件加入暂存区" class="headerlink" title="文件加入暂存区"></a>文件加入暂存区</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file name&gt;   <span class="comment">#改为已暂存</span></span><br><span class="line">git reset &lt;file name&gt; <span class="comment">#取消暂存</span></span><br></pre></td></tr></table></figure><h2 id="暂存区提交本地仓库"><a href="#暂存区提交本地仓库" class="headerlink" title="暂存区提交本地仓库"></a>暂存区提交本地仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;日志信息&quot;</span>    <span class="comment">#提交所有暂存区文件</span></span><br><span class="line">git commit -a -m <span class="string">&quot;日志信息&quot;</span> <span class="comment">#先添加到暂存区，然后提交本地仓库（就不用执行add命令了）</span></span><br></pre></td></tr></table></figure><h2 id="删除工作区文件"><a href="#删除工作区文件" class="headerlink" title="删除工作区文件"></a>删除工作区文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> &lt;file name&gt;  <span class="comment">#默认加入暂存区 从本地仓库删除要再commit</span></span><br></pre></td></tr></table></figure><h2 id="创建忽略列表文件"><a href="#创建忽略列表文件" class="headerlink" title="创建忽略列表文件"></a>创建忽略列表文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> .gitignore</span><br></pre></td></tr></table></figure><h2 id="查看日志目录"><a href="#查看日志目录" class="headerlink" title="查看日志目录"></a>查看日志目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure><h2 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;shortname&gt; &lt;url&gt;</span><br></pre></td></tr></table></figure><h2 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v                 <span class="comment">#-v显示详细信息</span></span><br><span class="line">git remote show [remote-name] <span class="comment">#超详细信息</span></span><br></pre></td></tr></table></figure><h2 id="移除本地远程仓库（只移除本地信息）"><a href="#移除本地远程仓库（只移除本地信息）" class="headerlink" title="移除本地远程仓库（只移除本地信息）"></a>移除本地远程仓库（只移除本地信息）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">rm</span> [remote-name]</span><br></pre></td></tr></table></figure><h2 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h2><h3 id="抓取-不会自动合并数据-merge"><a href="#抓取-不会自动合并数据-merge" class="headerlink" title="抓取 不会自动合并数据(merge)"></a>抓取 不会自动合并数据(merge)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch ([remote-name] [branch-name])</span><br></pre></td></tr></table></figure><h4 id="合并到工作区"><a href="#合并到工作区" class="headerlink" title="合并到工作区"></a>合并到工作区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [remote-name]/[branch-name]</span><br></pre></td></tr></table></figure><h3 id="拉取-自动合并数据-merge"><a href="#拉取-自动合并数据-merge" class="headerlink" title="拉取 自动合并数据(merge)"></a>拉取 自动合并数据(merge)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull ([remote-name] [branch-name])</span><br></pre></td></tr></table></figure><p>如果当前本地仓库不是从远程仓库克隆，而是本地创建的仓库，并且仓库中存在文件，此时再从远程仓库拉取文件的时候会报错，解决此问题可以在git pull命令后加入参数<code>-allow-unrelated-histories</code>， 此后会让输入日志 </p><h2 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [remote-name] [branch-name]</span><br></pre></td></tr></table></figure><h2 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h2><h3 id="查看本地所有分支"><a href="#查看本地所有分支" class="headerlink" title="查看本地所有分支"></a>查看本地所有分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure><h3 id="查看所有远程分支"><a href="#查看所有远程分支" class="headerlink" title="查看所有远程分支"></a>查看所有远程分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></table></figure><h3 id="查看所有本地和远程分支"><a href="#查看所有本地和远程分支" class="headerlink" title="查看所有本地和远程分支"></a>查看所有本地和远程分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure><h2 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch [branch-name]</span><br></pre></td></tr></table></figure><h2 id="切换本地分支"><a href="#切换本地分支" class="headerlink" title="切换本地分支"></a>切换本地分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout [branch-name]</span><br></pre></td></tr></table></figure><h2 id="分支本地合并"><a href="#分支本地合并" class="headerlink" title="分支本地合并"></a>分支本地合并</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge [branch-name] <span class="comment">#将[branch-name]合并到当前分支 冲突手动处理</span></span><br></pre></td></tr></table></figure><h2 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d [branch-name]</span><br><span class="line">git branch -D [branch-name]  <span class="comment">#强制删除</span></span><br></pre></td></tr></table></figure><h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [remote-name] -d [branch-name]</span><br></pre></td></tr></table></figure><h2 id="创建本地标签"><a href="#创建本地标签" class="headerlink" title="创建本地标签"></a>创建本地标签</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag [tag-name]</span><br></pre></td></tr></table></figure><h2 id="列出已有本地标签"><a href="#列出已有本地标签" class="headerlink" title="列出已有本地标签"></a>列出已有本地标签</h2><h3 id="列出所有tag"><a href="#列出所有tag" class="headerlink" title="列出所有tag"></a>列出所有tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure><h3 id="查看tag信息"><a href="#查看tag信息" class="headerlink" title="查看tag信息"></a>查看tag信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show [tag]</span><br></pre></td></tr></table></figure><h2 id="标签推送至远程仓库"><a href="#标签推送至远程仓库" class="headerlink" title="标签推送至远程仓库"></a>标签推送至远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [remote-name] [tag-name]</span><br></pre></td></tr></table></figure><h2 id="检出本地标签"><a href="#检出本地标签" class="headerlink" title="检出本地标签"></a>检出本地标签</h2><p>创建一个分支指向某个tag</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b [branch-name] [tag-name]</span><br></pre></td></tr></table></figure><h2 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h2><h3 id="删除本地tag"><a href="#删除本地tag" class="headerlink" title="删除本地tag"></a>删除本地tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d [tag-name]</span><br></pre></td></tr></table></figure><h3 id="删除远程tag"><a href="#删除远程tag" class="headerlink" title="删除远程tag"></a>删除远程tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push [remote-name] :refs/tags/[tag-name]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git概念</title>
+      <link href="/Git/0Concept/"/>
+      <url>/Git/0Concept/</url>
+      
+        <content type="html"><![CDATA[<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><img src="/Git/0Concept/GitFrame.png"></p><h2 id="版本库"><a href="#版本库" class="headerlink" title="版本库"></a>版本库</h2><p> .git隐藏文件夹</p><h2 id="工作区"><a href="#工作区" class="headerlink" title="工作区"></a>工作区</h2><p> 包含.git文件夹的目录，存放开发的代码</p><h2 id="暂存区"><a href="#暂存区" class="headerlink" title="暂存区"></a>暂存区</h2><p> .git中的index文件，临时保存修改文件</p><h2 id="git工作目录下文件状态"><a href="#git工作目录下文件状态" class="headerlink" title="git工作目录下文件状态"></a>git工作目录下文件状态</h2><h3 id="untracked-未跟踪-未纳入版本控制"><a href="#untracked-未跟踪-未纳入版本控制" class="headerlink" title="untracked 未跟踪 未纳入版本控制"></a>untracked 未跟踪 未纳入版本控制</h3><h3 id="tracted-以跟踪-已纳入版本控制"><a href="#tracted-以跟踪-已纳入版本控制" class="headerlink" title="tracted 以跟踪 已纳入版本控制"></a>tracted 以跟踪 已纳入版本控制</h3><ul><li><p>Unmodified 未修改状态</p></li><li><p>Modified 已修改状态</p></li><li><p>Staged 已暂存状态</p><h2 id="忽略列表"><a href="#忽略列表" class="headerlink" title="忽略列表"></a>忽略列表</h2><p>不想被git管理的文件列表</p><p>工作目录中创建.gitignore文件（文件名固定）列出要忽略文件</p><p>列表具体写法CSDN查找</p><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>主分支 master</p><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>给历史中某一提交打上标签，以示重要，如标记某个版本号</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
