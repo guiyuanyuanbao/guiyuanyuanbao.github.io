@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Vim | Yuan Gui's Notebook</title><meta name="author" content="Yuan Gui"><meta name="copyright" content="Yuan Gui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="退出   命令 作用    : q quit   : q! force quit   : wq write (save) and quit   插入   命令 作用    a append (write after this char)   i insert (write before ths char)   o open a new line below   A append after lin">
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Vim | Yuan Gui's Notebook</title><meta name="author" content="Yuan Gui"><meta name="copyright" content="Yuan Gui"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="退出   命令 作用    :q quit   :q! force quit   :wq write (save) and quit   插入   命令 作用    a append (write after this char)   i insert (write before ths char)   o open a new line below   A append after line">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim">
 <meta property="og:url" content="https://guiyuanyuanbao.github.io/_posts/Tools/Vim.md/index.html">
 <meta property="og:site_name" content="Yuan Gui&#39;s Notebook">
-<meta property="og:description" content="退出   命令 作用    : q quit   : q! force quit   : wq write (save) and quit   插入   命令 作用    a append (write after this char)   i insert (write before ths char)   o open a new line below   A append after lin">
+<meta property="og:description" content="退出   命令 作用    :q quit   :q! force quit   :wq write (save) and quit   插入   命令 作用    a append (write after this char)   i insert (write before ths char)   o open a new line below   A append after line">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://guiyuanyuanbao.github.io/assets/vim.png">
 <meta property="article:published_time" content="2023-01-26T16:52:23.000Z">
@@ -174,7 +174,7 @@ window.addEventListener('load',()=> { preloader.endLoading() })
 if (true) {
   document.addEventListener('pjax:send', () => { preloader.initLoading() })
   document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/assets/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/directory/"><i class="fa-fw fas fa-list"></i><span> Directory</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/assets/top_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Yuan Gui's Notebook"><span class="site-name">Yuan Gui's Notebook</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/directory/"><i class="fa-fw fas fa-list"></i><span> Directory</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vim</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-26T16:52:23.000Z" title="Created 2023-01-27 00:52:23">2023-01-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-26T16:52:23.000Z" title="Updated 2023-01-27 00:52:23">2023-01-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Tools/">Tools</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">995</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vim"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h1><table>
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/assets/head.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/directory/"><i class="fa-fw fas fa-list"></i><span> Directory</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/assets/top_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Yuan Gui's Notebook"><span class="site-name">Yuan Gui's Notebook</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/directory/"><i class="fa-fw fas fa-list"></i><span> Directory</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vim</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-26T16:52:23.000Z" title="Created 2023-01-27 00:52:23">2023-01-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-26T16:52:23.000Z" title="Updated 2023-01-27 00:52:23">2023-01-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Tools/">Tools</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vim"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h1><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -182,15 +182,15 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>: q</td>
+<td><code>:q</code></td>
 <td>quit</td>
 </tr>
 <tr>
-<td>: q!</td>
+<td><code>:q!</code></td>
 <td>force quit</td>
 </tr>
 <tr>
-<td>: wq</td>
+<td><code>:wq</code></td>
 <td>write (save) and quit</td>
 </tr>
 </tbody></table>
@@ -202,39 +202,39 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>a</td>
+<td><code>a</code></td>
 <td>append (write after this char)</td>
 </tr>
 <tr>
-<td>i</td>
+<td><code>i</code></td>
 <td>insert (write before ths char)</td>
 </tr>
 <tr>
-<td>o</td>
+<td><code>o</code></td>
 <td>open a new line below</td>
 </tr>
 <tr>
-<td>A</td>
+<td><code>A</code></td>
 <td>append after line</td>
 </tr>
 <tr>
-<td>I</td>
+<td><code>I</code></td>
 <td>insert before line</td>
 </tr>
 <tr>
-<td>O</td>
+<td><code>O</code></td>
 <td>open a new line above</td>
 </tr>
 <tr>
-<td>gi</td>
+<td><code>gi</code></td>
 <td>insert at the position last edited</td>
 </tr>
 <tr>
-<td>ESC</td>
+<td><code>ESC</code></td>
 <td>quit the insert mode, go back to the normal mode</td>
 </tr>
 <tr>
-<td>ctrl+c</td>
+<td><code>ctrl+c</code></td>
 <td>quit the insert mode, go back to the normal mode</td>
 </tr>
 <tr>
@@ -250,89 +250,89 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>h</td>
+<td><code>h</code></td>
 <td>move left</td>
 </tr>
 <tr>
-<td>j</td>
+<td><code>j</code></td>
 <td>move down</td>
 </tr>
 <tr>
-<td>k</td>
+<td><code>k</code></td>
 <td>move up</td>
 </tr>
 <tr>
-<td>l</td>
+<td><code>l</code></td>
 <td>move right</td>
 </tr>
 <tr>
-<td>w&#x2F;W</td>
+<td><code>w/W</code></td>
 <td>move to next word&#x2F;Word start</td>
 </tr>
 <tr>
-<td>e&#x2F;E</td>
+<td><code>e/E</code></td>
 <td>move to next word&#x2F;Word tail</td>
 </tr>
 <tr>
-<td>b&#x2F;B</td>
+<td><code>b/B</code></td>
 <td>move to previous word&#x2F;Word start</td>
 </tr>
 <tr>
-<td>0</td>
+<td><code>0</code></td>
 <td>move to the first char of the line</td>
 </tr>
 <tr>
-<td>^</td>
+<td><code>^</code></td>
 <td>move to the first non-blank char of the line</td>
 </tr>
 <tr>
-<td>$</td>
+<td><code>$</code></td>
 <td>move to the last char of the line</td>
 </tr>
 <tr>
-<td>g_</td>
+<td><code>g_</code></td>
 <td>move to the last non-blank char of the line</td>
 </tr>
 <tr>
-<td>gg</td>
+<td><code>gg</code></td>
 <td>move to the start of the file</td>
 </tr>
 <tr>
-<td>G</td>
+<td><code>G</code></td>
 <td>move to the tail of the file</td>
 </tr>
 <tr>
-<td>ctrl+o</td>
+<td><code>ctrl+o</code></td>
 <td>move to the previous position</td>
 </tr>
 <tr>
-<td>H</td>
+<td><code>H</code></td>
 <td>move to the start of the screen</td>
 </tr>
 <tr>
-<td>M</td>
+<td><code>M</code></td>
 <td>move to the middle of the screen</td>
 </tr>
 <tr>
-<td>L</td>
+<td><code>L</code></td>
 <td>move to the tail of the screen</td>
 </tr>
 <tr>
-<td>ctrl+u</td>
+<td><code>ctrl+u</code></td>
 <td>page up</td>
 </tr>
 <tr>
-<td>ctrl+f</td>
+<td><code>ctrl+f</code></td>
 <td>page down</td>
 </tr>
 <tr>
-<td>zz</td>
+<td><code>zz</code></td>
 <td>put the line cursor at to the middle of the screen</td>
 </tr>
 </tbody></table>
 <ul>
-<li>word 指以非空白符分隔的单词</li>
-<li>Word 指以空白符分隔的单词</li>
+<li><code>word</code> 指以非空白符分隔的单词</li>
+<li><code>Word</code> 指以空白符分隔的单词</li>
 </ul>
 <h1 id="行内搜索移动"><a href="#行内搜索移动" class="headerlink" title="行内搜索移动"></a>行内搜索移动</h1><table>
 <thead>
@@ -342,23 +342,23 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>f{char}</td>
+<td><code>f&#123;char&#125;</code></td>
 <td>move to the next char we searched</td>
 </tr>
 <tr>
-<td>F{char}</td>
+<td><code>F&#123;char&#125;</code></td>
 <td>move to the previous char we searched</td>
 </tr>
 <tr>
-<td>t{char}</td>
+<td><code>t&#123;char&#125;</code></td>
 <td>move to the char before the next char we searched</td>
 </tr>
 <tr>
-<td>;</td>
+<td><code>;</code></td>
 <td>move to the next char meeting the condition</td>
 </tr>
 <tr>
-<td>,</td>
+<td><code>,</code></td>
 <td>move to the previous char meeting the condition</td>
 </tr>
 </tbody></table>
@@ -370,23 +370,23 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>w</td>
+<td><code>w</code></td>
 <td>word</td>
 </tr>
 <tr>
-<td>s</td>
+<td><code>s</code></td>
 <td>sentence</td>
 </tr>
 <tr>
-<td>p</td>
+<td><code>p</code></td>
 <td>paragraph</td>
 </tr>
 <tr>
-<td>i</td>
+<td><code>i</code></td>
 <td>decorate inner</td>
 </tr>
 <tr>
-<td>a</td>
+<td><code>a</code></td>
 <td>decorate around</td>
 </tr>
 <tr>
@@ -422,19 +422,19 @@ if (true) {
 <td>the chars in [] and include []</td>
 </tr>
 <tr>
-<td>i”</td>
+<td><code>i&quot;</code></td>
 <td>the chars in “” but not include “”</td>
 </tr>
 <tr>
-<td>a”</td>
+<td><code>a&quot;</code></td>
 <td>the chars in “” and include “”</td>
 </tr>
 <tr>
-<td>i’</td>
+<td><code>i&#39;</code></td>
 <td>the chars in ‘’ but not include ‘’</td>
 </tr>
 <tr>
-<td>a’</td>
+<td><code>a&#39;</code></td>
 <td>the chars in ‘’ and include ‘’</td>
 </tr>
 </tbody></table>
@@ -446,33 +446,33 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>x</td>
+<td><code>x</code></td>
 <td>delete a char</td>
 </tr>
 <tr>
-<td>daw</td>
+<td><code>daw</code></td>
 <td>delete a word and the space around it</td>
 </tr>
 <tr>
-<td>diw</td>
+<td><code>diw</code></td>
 <td>delete a word</td>
 </tr>
 <tr>
-<td>dw</td>
+<td><code>dw</code></td>
 <td>the same function as daw</td>
 </tr>
 <tr>
-<td>dd</td>
+<td><code>dd</code></td>
 <td>delete current line</td>
 </tr>
 <tr>
-<td>dt{char}</td>
+<td><code>dt&#123;char&#125;</code></td>
 <td>delete between the cursor and the char</td>
 </tr>
 </tbody></table>
 <ul>
-<li>x 和 d 可以配合数字使用</li>
-<li>可以d 文本对象</li>
+<li><code>x</code> 和 <code>d</code> 可以配合数字使用</li>
+<li>可以<code>d</code> 文本对象</li>
 </ul>
 <h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><table>
 <thead>
@@ -482,32 +482,32 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>r</td>
+<td><code>r</code></td>
 <td>replace a char</td>
 </tr>
 <tr>
-<td>s</td>
+<td><code>s</code></td>
 <td>delete a char and into the insert mode</td>
 </tr>
 <tr>
-<td>R</td>
+<td><code>R</code></td>
 <td>replace next char untill quit</td>
 </tr>
 <tr>
-<td>S</td>
+<td><code>S</code></td>
 <td>delete the whole line and into the insert mode</td>
 </tr>
 <tr>
-<td>caw&#x2F;cw</td>
+<td><code>caw/cw</code></td>
 <td>delete current word and into the insert mode</td>
 </tr>
 <tr>
-<td>ct{char}</td>
+<td><code>ct&#123;char&#125;</code></td>
 <td>delete between the cursor and the char and into the insert mode</td>
 </tr>
 </tbody></table>
 <ul>
-<li>可以 c 文本对象</li>
+<li>可以 <code>c</code> 文本对象</li>
 </ul>
 <h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><table>
 <thead>
@@ -517,27 +517,27 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>&#x2F;</td>
+<td><code>/</code></td>
 <td>search from start</td>
 </tr>
 <tr>
-<td>?</td>
+<td><code>?</code></td>
 <td>search from tail</td>
 </tr>
 <tr>
-<td>n</td>
+<td><code>n</code></td>
 <td>next maching</td>
 </tr>
 <tr>
-<td>N</td>
+<td><code>N</code></td>
 <td>previous maching</td>
 </tr>
 <tr>
-<td>*</td>
+<td><code>*</code></td>
 <td>next matching of current word</td>
 </tr>
 <tr>
-<td>#</td>
+<td><code>#</code></td>
 <td>previous maching of current word</td>
 </tr>
 </tbody></table>
@@ -554,14 +554,14 @@ if (true) {
 </tr>
 </tbody></table>
 <ul>
-<li>range 表示范围，比如 10, 20 表示 10-20 行，%表示全部</li>
-<li>s 代表 substitute 替换</li>
-<li>pattern 是要替换的模式</li>
-<li>string 是替换后的文本</li>
-<li>flags 替换位标志<ul>
-<li>g (global) 表示全局范围内执行</li>
-<li>c (confirm) 表示确认，可以确认或者拒绝修改</li>
-<li>n (number) 报告匹配到的次数而不替换，可以用来查询匹配次数</li>
+<li><code>range</code> 表示范围，比如 10, 20 表示 10-20 行，%表示全部</li>
+<li><code>s</code> 代表 substitute 替换</li>
+<li><code>pattern</code> 是要替换的模式</li>
+<li><code>string</code> 是替换后的文本</li>
+<li><code>flags</code> 替换位标志<ul>
+<li><code>g</code> (global) 表示全局范围内执行</li>
+<li><code>c</code> (confirm) 表示确认，可以确认或者拒绝修改</li>
+<li><code>n</code> (number) 报告匹配到的次数而不替换，可以用来查询匹配次数</li>
 </ul>
 </li>
 </ul>
@@ -573,7 +573,7 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>: w</td>
+<td><code>:w</code></td>
 <td>write (save)</td>
 </tr>
 </tbody></table>
@@ -585,30 +585,30 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>y</td>
+<td><code>y</code></td>
 <td>copy</td>
 </tr>
 <tr>
-<td>p</td>
+<td><code>p</code></td>
 <td>paste</td>
 </tr>
 <tr>
-<td>d</td>
+<td><code>d</code></td>
 <td>cut</td>
 </tr>
 <tr>
-<td>yy</td>
+<td><code>yy</code></td>
 <td>copy the whole line</td>
 </tr>
 </tbody></table>
 <ul>
 <li>可以 y 文本对象</li>
 <li>寄存器<ul>
-<li>通过 “{register} 前缀指定寄存器，不指定默认用无名寄存器</li>
-<li>有名寄存器 a-z</li>
-<li>复制专用寄存器 “0 使用 y 复制的文本同时会被拷贝到复制寄存器 0</li>
-<li>系统剪贴板 “+ 可以在复制前加上 “0 复制到系统剪贴板</li>
-<li>其他寄存器 “% 当前文件名， “. 上次插入的文本</li>
+<li>通过 <code>&quot;&#123;register&#125;</code> 前缀指定寄存器，不指定默认用无名寄存器</li>
+<li>有名寄存器 <code>a-z</code></li>
+<li>复制专用寄存器 <code>&quot;0</code> 使用 y 复制的文本同时会被拷贝到复制寄存器 0</li>
+<li>系统剪贴板 <code>&quot;+</code> 可以在复制前加上 <code>&quot;+</code> 复制到系统剪贴板</li>
+<li>其他寄存器 <code>&quot;%</code> 当前文件名， <code>“.</code> 上次插入的文本</li>
 </ul>
 </li>
 </ul>
@@ -620,7 +620,7 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>u</td>
+<td><code>u</code></td>
 <td>undo</td>
 </tr>
 </tbody></table>
@@ -632,11 +632,11 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>: vs</td>
+<td><code>:vs</code></td>
 <td>vertical split</td>
 </tr>
 <tr>
-<td>: sp</td>
+<td><code>:sp</code></td>
 <td>horizontal split</td>
 </tr>
 </tbody></table>
@@ -648,15 +648,15 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>v</td>
+<td><code>v</code></td>
 <td>enter visual mode, then use direction key to select chars</td>
 </tr>
 <tr>
-<td>V</td>
+<td><code>V</code></td>
 <td>select the whole line</td>
 </tr>
 <tr>
-<td>ctrl+v</td>
+<td><code>ctrl+v</code></td>
 <td>select a bolck using direction key</td>
 </tr>
 </tbody></table>
@@ -668,15 +668,15 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>ctrl+h</td>
+<td><code>ctrl+h</code></td>
 <td>delete previous char</td>
 </tr>
 <tr>
-<td>ctrl+w</td>
+<td><code>ctrl+w</code></td>
 <td>delete chars from the start of the word to the cursor (when the cursor is at the tail of the word, delete the whole word)</td>
 </tr>
 <tr>
-<td>ctrl+u</td>
+<td><code>ctrl+u</code></td>
 <td>delete chars from the start of the line to the cursor (when the cursor is at the tail of the line, delete the whole line)</td>
 </tr>
 </tbody></table>
@@ -688,7 +688,7 @@ if (true) {
 </tr>
 </thead>
 <tbody><tr>
-<td>ctrl+v</td>
+<td><code>ctrl+v</code></td>
 <td>paste</td>
 </tr>
 </tbody></table>
@@ -762,7 +762,7 @@ document.addEventListener('pjax:error', (e) => {
 })</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
     function butterfly_categories_card_injector_config(){
       var parent_div_git = document.getElementById('recent-posts');
-      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(/assets/CSS3.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/CSS/&quot;);" href="javascript:void(0);">CSS</a><span class="categoryBar-list-count">15</span><span class="categoryBar-list-descr">CSS3基础</span></li><li class="categoryBar-list-item" style="background:url(/assets/git.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/HTML/&quot;);" href="javascript:void(0);">HTML</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">Git指南</span></li><li class="categoryBar-list-item" style="background:url(/assets/HTML5.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/STL/&quot;);" href="javascript:void(0);">STL</a><span class="categoryBar-list-count">11</span><span class="categoryBar-list-descr">HTML5入门</span></li><li class="categoryBar-list-item" style="background:url(/assets/cpp.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Git/&quot;);" href="javascript:void(0);">Git</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">玩转C++</span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Tools/&quot;);" href="javascript:void(0);">Tools</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(/assets/CSS3.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/CSS/&quot;);" href="javascript:void(0);">CSS</a><span class="categoryBar-list-count">15</span><span class="categoryBar-list-descr">CSS3基础</span></li><li class="categoryBar-list-item" style="background:url(/assets/git.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Git/&quot;);" href="javascript:void(0);">Git</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">Git指南</span></li><li class="categoryBar-list-item" style="background:url(/assets/HTML5.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/HTML/&quot;);" href="javascript:void(0);">HTML</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">HTML5入门</span></li><li class="categoryBar-list-item" style="background:url(/assets/cpp.png);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/STL/&quot;);" href="javascript:void(0);">STL</a><span class="categoryBar-list-count">11</span><span class="categoryBar-list-descr">玩转C++</span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" onclick="pjax.loadUrl(&quot;categories/Tools/&quot;);" href="javascript:void(0);">Tools</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
       console.log('已挂载butterfly_categories_card')
       parent_div_git.insertAdjacentHTML("afterbegin",item_html)
       }
